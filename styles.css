@@ -67,14 +67,31 @@ html:has(#collapsePlayer:checked) {
     grid-template-rows:    auto auto 1fr;
     grid-template-areas:
       'title title'
-      'player buttons'
-      'transcript graph';
+      'player graph'
+      'transcript buttons';
+  }
+  html:has(#collapseTranscript:checked) {
+    main {
+      grid-template-rows: auto 1fr 1fr;
+      grid-template-areas:
+        'title title'
+        'player graph'
+        'player buttons';
+    }
+  }
+  html:has(#collapsePlayer:checked) {
+    main {
+      grid-template-rows: auto 1fr 1fr;
+      grid-template-areas:
+        'title title'
+        'transcript graph'
+        'transcript buttons';
+    }
   }
 }
 
 .player-box {
   grid-area: player;
-  width:  100%;
   height: fit-content;
 }
 
@@ -85,7 +102,7 @@ html:has(#collapsePlayer:checked) {
   border-radius: 6px;
 }
 html:has(#collapsePlayer:checked) {
-  .player {
+  .player-box {
     display: none;
   }
 }
