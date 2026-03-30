@@ -3,12 +3,14 @@ html {
   --bg-1: #ffffff;
   --bg-2: #e6e6e6;
   --bg-3: #cccccc;
-  --text: #202020;
-  --icon: #404040;
-  --icon-hover: #808080;
+  --text: #303030;
+  --icon: #505050;
+  --icon-hover: #909090;
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background-color: var(--bg-1);
   font-size: 16px;
   font-family: 'Assistant', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,20 +19,29 @@ body {
 body > header {
   position: fixed;
   width:  100%;
-  height: 60px;
-  padding-left: 1rem; padding-right: 1rem;
+  height: 40px;
+  padding-left:  1rem;
+  padding-right: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: var(--bg-2);
-  border: 1px var(--bg-3) solid;
+  border-bottom: 1px var(--bg-3) solid;
+  color: var(--text);
+  z-index: 1;
 
   > * {
     margin: 0;
+  }
+
+  > h1 {
+    font-size: 16px;
   }
 }
 
 main {
   width:  100%;
+  max-width: 1200px;
   height: 600px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -39,13 +50,12 @@ main {
     'title title title'
     'player buttons transcript'
     'player volume transcript';
-  padding-top:    calc(2em + 60px);
-  padding-bottom: 2rem;
+  padding-top:    calc(1em + 60px);
+  padding-bottom: 1rem;
   padding-left:  3rem;
   padding-right: 3rem;
   column-gap: 1rem;
   row-gap:    1rem;
-  /* box-shadow: 0 0 0 2px magenta inset; */
   
   > h2 {
     grid-area: title;
@@ -119,20 +129,45 @@ html:has(#collapsePlayer:checked) {
 
 .transcript {
   grid-area: transcript;
+  position: relative;
   padding: 1rem;
+  padding-top: calc(1rem + 40px);
   background-color: var(--bg-2);
   border: 1px var(--bg-3) solid;
   border-radius: 8px;
   color: var(--text);
   overflow: auto;
   
-  > :first-child {
+  > p:first-of-type {
     margin-top: 0;
   }
 }
 html:has(#collapseTranscript:checked) {
   .transcript {
     display: none;
+  }
+}
+
+.transcript > header {
+  position: absolute;
+  top:  0;
+  left: 0;
+  width:  100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  background-color: var(--bg-2);
+  border-bottom: 1px var(--bg-3) solid;
+
+  > * {
+    margin: 0;
+  }
+
+  > h3 {
+    flex: 1;
+    /* text-align: center; */
+    font-size: 16px;
   }
 }
 
@@ -149,8 +184,8 @@ html:has(#collapseTranscript:checked) {
 
 .button {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width:  40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,6 +210,7 @@ html:has(#collapseTranscript:checked) {
 }
 
 .volume {
+  --volume: 50%;
   grid-area: volume;
   position: relative;
   width: 40px;
@@ -184,7 +220,6 @@ html:has(#collapseTranscript:checked) {
   overflow: hidden;
 
   &::after {
-    --volume: 50%;
     content: '';
     display: block;
     position: absolute;
@@ -201,6 +236,13 @@ html:has(#collapsePlayer:checked) .button:has(#collapseTranscript) {
   filter: saturate(0);
   pointer-events: none;
   user-select: none;
+}
+
+@media print {
+  body > :not(main),
+  main > :not(.transcript) {
+    display: none;
+  }
 }
 
 * {
