@@ -147,6 +147,7 @@ html:has(#collapseTranscript:checked) {
   cursor: pointer;
 
   &:hover:not(:active),
+  &:has(:focus-visible),
   &:has(:checked):not(:active) {
     color: var(--light-icon-hover);
   }
