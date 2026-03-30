@@ -1,11 +1,11 @@
 html {
   --main-width: clamp(50%, 1000px, 100%);
-  --light1: #ffffff;
-  --light2: #e6e6e6;
-  --light3: #cccccc;
-  --light-text: #202020;
-  --light-icon: #404040;
-  --light-icon-hover: #808080;
+  --bg-1: #ffffff;
+  --bg-2: #e6e6e6;
+  --bg-3: #cccccc;
+  --text: #202020;
+  --icon: #404040;
+  --icon-hover: #808080;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
     overflow: auto;
   }
   
-  background-color: var(--light1);
+  background-color: var(--bg-1);
   font-size: 16px;
   font-family: 'Assistant', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -30,7 +30,7 @@ main {
   grid-template-areas:
     'title title title'
     'player buttons transcript'
-    'player graph transcript';
+    'player volume transcript';
   padding-top:  2rem; padding-bottom: 2rem;
   padding-left: 4rem; padding-right:  4rem;
   column-gap: 1rem;
@@ -40,7 +40,7 @@ main {
   > h2 {
     grid-area: title;
     margin: 0;
-    color: var(--light-text);
+    color: var(--text);
   }
 }
 html:has(#collapseTranscript:checked) {
@@ -49,7 +49,7 @@ html:has(#collapseTranscript:checked) {
     grid-template-areas:
       'title title'
       'player buttons'
-      'player graph';
+      'player volume';
   }
 }
 html:has(#collapsePlayer:checked) {
@@ -58,7 +58,7 @@ html:has(#collapsePlayer:checked) {
     grid-template-areas:
       'title title'
       'buttons transcript'
-      'graph transcript';
+      'volume transcript';
   }
 }
 @media only screen and (max-width: 600px) {
@@ -67,7 +67,7 @@ html:has(#collapsePlayer:checked) {
     grid-template-rows:    auto auto 1fr;
     grid-template-areas:
       'title title'
-      'player graph'
+      'player volume'
       'transcript buttons';
   }
   html:has(#collapseTranscript:checked) {
@@ -75,7 +75,7 @@ html:has(#collapsePlayer:checked) {
       grid-template-rows: auto 1fr 1fr;
       grid-template-areas:
         'title title'
-        'player graph'
+        'player volume'
         'player buttons';
     }
   }
@@ -84,7 +84,7 @@ html:has(#collapsePlayer:checked) {
       grid-template-rows: auto 1fr 1fr;
       grid-template-areas:
         'title title'
-        'transcript graph'
+        'transcript volume'
         'transcript buttons';
     }
   }
@@ -110,10 +110,10 @@ html:has(#collapsePlayer:checked) {
 .transcript {
   grid-area: transcript;
   padding: 1rem;
-  background-color: var(--light2);
-  border: 1px var(--light3) solid;
+  background-color: var(--bg-2);
+  border: 1px var(--bg-3) solid;
   border-radius: 6px;
-  color: var(--light-text);
+  color: var(--text);
   overflow: auto;
   
   > :first-child {
@@ -132,8 +132,8 @@ html:has(#collapseTranscript:checked) {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background-color: var(--light1);
-  border: 1px var(--light2) solid;
+  background-color: var(--bg-1);
+  border: 1px var(--bg-2) solid;
   border-radius: 6px;
 }
 
@@ -147,9 +147,8 @@ html:has(#collapseTranscript:checked) {
   cursor: pointer;
 
   &:hover:not(:active),
-  &:has(:focus-visible),
-  &:has(:checked):not(:active) {
-    color: var(--light-icon-hover);
+  &:has(:focus-visible) {
+    color: var(--icon-hover);
   }
   
   > i {
@@ -165,15 +164,25 @@ html:has(#collapseTranscript:checked) {
   }
 }
 
-.graph {
-  grid-area: graph;
+.volume {
+  grid-area: volume;
+  position: relative;
   width: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: var(--light1);
-  border: 1px var(--light2) solid;
+  background-color: var(--bg-1);
+  border: 1px var(--bg-2) solid;
   border-radius: 6px;
+  overflow: hidden;
+
+  &::after {
+    --volume: 50%;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width:  100%;
+    height: var(--volume);
+    background-color: lime;
+  }
 }
 
 html:has(#collapseTranscript:checked) .button:has(#collapsePlayer),
