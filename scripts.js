@@ -1,21 +1,17 @@
 let trackElem;
 let transcriptElem;
-let transcriptScrollElem;
 
 document.addEventListener('DOMContentLoaded', () => {
   trackElem = document.getElementById('track');
   if (trackElem === null) return;
 
-  transcriptElem = document.getElementById('transcript-text');
+  transcriptElem = document.getElementById('transcript');
   if (transcriptElem === null) return;
-
-  transcriptScrollElem = document.getElementById('transcript');
-  if (transcriptScrollElem === null) return;
   
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', highlightScrollCue);
 
-  transcriptScrollElem.addEventListener('scroll', disableCueScroll);
+  transcriptElem.addEventListener('scroll', disableCueScroll);
 
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
@@ -33,7 +29,6 @@ function insertTranscript(e) {
 }
 
 function highlightScrollCue(e) {
-  // highlight transcript
   if (trackElem.track === null) return;
   const activeCues = trackElem.track.activeCues;
   

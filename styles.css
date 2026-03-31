@@ -6,7 +6,7 @@ html {
   --text: #303030;
   --icon: #505050;
   --icon-hover: #909090;
-  scrollbar-color: var(--icon-hover) var(--bg-1);
+  scrollbar-color: #00000060 transparent;
 }
 
 body {
@@ -127,7 +127,7 @@ html:has(#collapsePlayer:checked) {
   }
 }
 
-.transcript {
+/* .transcript {
   grid-area: transcript;
   position: relative;
   padding: 1rem;
@@ -137,7 +137,6 @@ html:has(#collapsePlayer:checked) {
   border-radius: 8px;
   color: var(--text);
   overflow: auto;
-  scrollbar-color: var(--icon-hover) var(--bg-2);
   
   p:first-of-type {
     margin-top: 0;
@@ -151,12 +150,25 @@ html:has(#collapseTranscript:checked) {
   .transcript {
     display: none;
   }
+} */
+
+.transcript-box {
+  grid-area: transcript;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-2);
+  border: 1px var(--bg-3) solid;
+  border-radius: 8px;
+  color: var(--text);
+  overflow: hidden;
+}
+html:has(#collapseTranscript:checked) {
+  .transcript-box {
+    display: none;
+  }
 }
 
-.transcript > header {
-  position: absolute;
-  top:  0;
-  left: 0;
+.transcript-box > header {
   width:  100%;
   height: 40px;
   display: flex;
@@ -173,6 +185,19 @@ html:has(#collapseTranscript:checked) {
     flex: 1;
     /* text-align: center; */
     font-size: 16px;
+  }
+}
+
+.transcript-box > section {
+  padding: 1rem;
+  overflow: auto;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  p.bold {
+    font-weight: bold;
   }
 }
 
