@@ -1,3 +1,6 @@
+/* MARK: HTML
+*/
+
 html {
   --main-width: clamp(50%, 1000px, 100%);
   --bg-1: #ffffff;
@@ -19,6 +22,9 @@ html {
     scrollbar-color: #ffffff60 transparent;
   }
 }
+
+/* MARK: Body
+*/
 
 body {
   display: flex;
@@ -50,6 +56,9 @@ body > header {
     font-size: inherit;
   }
 }
+
+/* MARK: Main
+*/
 
 main {
   width: clamp(75%, 1200px, 100%);
@@ -121,6 +130,9 @@ html:has(#collapsePlayer:checked) {
   }
 }
 
+/* MARK: Player
+*/
+
 .player-box {
   grid-area: player;
   position: relative;
@@ -151,7 +163,7 @@ html:has(#collapsePlayer:checked) {
   }
 }
 
-html:not(:has(#toggleVideo:checked)) {
+html:not(:has(#toggleCover:checked)) {
   .cover {
     display: none;
   }
@@ -176,7 +188,7 @@ html:has(#toggleCaptions:checked) {
     display: block;
   }
 }
-html:has(#toggleVideo:checked) {
+html:has(#toggleCover:checked) {
   .captions {
     bottom: 50%;
     translate: 0 50%;
@@ -192,14 +204,17 @@ html:has(#toggleVideo:checked) {
   }
 }
 
-#toggleVideo {
+#toggleCover {
   ~ i::after {
-    content: 'movie_off';
+    content: 'headphones';
   }
-  &:checked ~ i {
-    font-variation-settings: 'FILL' 1;
+  &:checked ~ i::after {
+    content: 'movie';
   }
 }
+
+/* MARK: Transcript
+*/
 
 .transcript-box {
   grid-area: transcript;
@@ -248,11 +263,26 @@ html:has(#collapseTranscript:checked) {
   p.bold {
     font-weight: bold;
   }
+
+  button {
+    display: inline-block;
+    min-width: 1.5rem;
+    margin-right: 0.5rem;
+    color: cornflowerblue;
+    cursor: pointer;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus-visible {
+      outline: auto;
+    }
+  }
 }
 
 #syncTranscript {
   ~ i::after {
-    content: 'arrow_circle_down';
+    content: 'auto_stories';
   }
   &:checked ~ i {
     font-variation-settings: 'FILL' 1;
@@ -260,10 +290,13 @@ html:has(#collapseTranscript:checked) {
 }
 
 #printTranscript {
-  i::after {
+  > i::after {
     content: 'print';
   }
 }
+
+/* MARK: Layout_controls
+*/
 
 .layout-controls {
   grid-area: buttons;
@@ -304,9 +337,12 @@ html:has(#collapseTranscript:checked) {
   color: var(--icon);
   cursor: pointer;
 
-  &:hover:not(:active),
-  &:has(:focus-visible) {
+  &:hover:not(:active) {
     color: var(--icon-hover);
+  }
+  &:focus-visible,
+  &:has(:focus-visible) {
+    outline: auto;
   }
   
   > i {
@@ -357,7 +393,17 @@ html:has(#collapsePlayer:checked) .button:has(#collapseTranscript) {
   .transcript-box > :not(section) {
     display: none;
   }
+  .transcript-box {
+    overflow: visible;
+  }
+  .transcript {
+    overflow: visible;
+  }
+  .timestamp {
+    display: none;
+  }
 }
+
 
 * {
   box-sizing: border-box;
