@@ -151,6 +151,12 @@ html:has(#collapsePlayer:checked) {
   }
 }
 
+html:not(:has(#toggleVideo:checked)) {
+  .cover {
+    display: none;
+  }
+}
+
 .player-controls {
   width:  100%;
   height: 40px;
@@ -173,6 +179,15 @@ html:has(#toggleCaptions:checked) {
 #toggleCaptions {
   ~ i::after {
     content: 'closed_caption';
+  }
+  &:checked ~ i {
+    font-variation-settings: 'FILL' 1;
+  }
+}
+
+#toggleVideo {
+  ~ i::after {
+    content: 'movie_off';
   }
   &:checked ~ i {
     font-variation-settings: 'FILL' 1;
