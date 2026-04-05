@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', (e) => {
-    updateTranscription(e);
+    updateTranscript(e);
     updateCaption(e);
   });
 
@@ -25,6 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
 });
+
+function setPlayerTime(startTime) {
+  const audioElem = document.getElementById('audio');
+  if (audioElem === null) return;
+
+  audioElem.currentTime = startTime;
+}
 
 function insertTranscript(e) {
   if (trackElem.track === null) return;
@@ -39,13 +46,13 @@ function insertTranscript(e) {
     timestampElem.ariaHidden = true;
     const timestampMinute = cue.startTime.toFixed(0); //TODO: minute notation
     timestampElem.innerText = timestampMinute;
-    
+    timestampElem.setAttribute("onclick", `setPlayerTime(${cue.startTime});`);
     captionElem.prepend(timestampElem);
     transcriptElem.append(captionElem);
   }
 }
 
-function updateTranscription(e) {
+function updateTranscript(e) {
   if (trackElem.track === null) return;
   const activeCues = trackElem.track.activeCues;
   
@@ -109,6 +116,6 @@ function onTranscriptSyncChange(e) {
   
   if (transcriptIsSynced) {
     console.log('enable transcript scroll')
-    updateTranscription(e);
+    updateTranscript(e);
   }
 }
