@@ -8,6 +8,17 @@ html {
   --icon-hover: #909090;
   scrollbar-color: #00000060 transparent;
 }
+@media (prefers-color-scheme: dark) {
+  html {
+    --bg-1: #262626;
+    --bg-2: #404040;
+    --bg-3: #494949;
+    --text: #e6e6e6;
+    --icon: #cccccc;
+    --icon-hover: #ffffff;
+    scrollbar-color: #ffffff60 transparent;
+  }
+}
 
 body {
   display: flex;
@@ -112,14 +123,27 @@ html:has(#collapsePlayer:checked) {
 
 .player-box {
   grid-area: player;
+  position: relative;
   height: fit-content;
+  background-color: var(--bg-2);
+  border: 1px var(--bg-3) solid;
+  border-radius: 8px;
+  color: var(--text);
+  overflow: hidden;
 }
 
 .player {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: black;
-  border-radius: 8px;
+  background-color: var(--bg-1);
+  outline: 1px var(--bg-3) solid;
+  display: flex;
+  justify-content: center;
+
+  > img {
+    height: 100%;
+  }
 }
 html:has(#collapsePlayer:checked) {
   .player-box {
@@ -127,30 +151,12 @@ html:has(#collapsePlayer:checked) {
   }
 }
 
-/* .transcript {
-  grid-area: transcript;
-  position: relative;
-  padding: 1rem;
-  padding-top: calc(1rem + 40px);
-  background-color: var(--bg-2);
-  border: 1px var(--bg-3) solid;
-  border-radius: 8px;
-  color: var(--text);
-  overflow: auto;
-  
-  p:first-of-type {
-    margin-top: 0;
-  }
-
-  p.bold {
-    font-weight: bold;
-  }
+.subtitles {
+  position: absolute;
+  bottom: 0;
+  background-color: #00000080;
+  color: white;
 }
-html:has(#collapseTranscript:checked) {
-  .transcript {
-    display: none;
-  }
-} */
 
 .transcript-box {
   grid-area: transcript;
@@ -219,6 +225,7 @@ html:has(#collapseTranscript:checked) {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--icon);
   cursor: pointer;
 
   &:hover:not(:active),
@@ -270,7 +277,8 @@ html:has(#collapsePlayer:checked) .button:has(#collapseTranscript) {
 
 @media print {
   body > :not(main),
-  main > :not(.transcript) {
+  main > :not(.transcript-box),
+  .transcript-box > :not(section) {
     display: none;
   }
 }
