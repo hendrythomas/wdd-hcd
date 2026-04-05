@@ -388,19 +388,34 @@ html:has(#collapsePlayer:checked) .button:has(#collapseTranscript) {
 }
 
 @media print {
+  * {
+    color: black;
+    border: none;
+  }
+  
   body > :not(main),
   main > :not(.transcript-box),
   .transcript-box > :not(section) {
     display: none;
   }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows:    1fr;
+    grid-template-areas:
+      'transcript';
+  }
+
   .transcript-box {
     overflow: visible;
-  }
-  .transcript {
-    overflow: visible;
-  }
-  .timestamp {
-    display: none;
+
+    > section {
+      overflow: visible;
+    
+      button {
+        display: none;
+      }
+    }
   }
 }
 
