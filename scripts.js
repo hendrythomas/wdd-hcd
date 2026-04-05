@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (syncTranscriptElem === null) return;
   
   trackElem.addEventListener('load', insertTranscript);
-  trackElem.addEventListener('cuechange', highlightScrollCue);
+  trackElem.addEventListener('cuechange', (e) => {
+    updateTranscription(e);
+    updateCaption(e);
+  });
 
   transcriptElem.addEventListener('scroll', unsyncTranscript);
   
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   volumeElem.style.setProperty('--volume', '10%');
 });
 
-function insertTranscript() {
+function insertTranscript(e) {
   if (trackElem.track === null) return;
 
   for (const cue of trackElem.track.cues) {
@@ -34,7 +37,7 @@ function insertTranscript() {
   }
 }
 
-function highlightScrollCue() {
+function updateTranscription(e) {
   if (trackElem.track === null) return;
   const activeCues = trackElem.track.activeCues;
   
@@ -42,10 +45,10 @@ function highlightScrollCue() {
     const cueElem = transcriptElem.querySelector(`[data-start-time="${activeCue.startTime}"]`);
     if (cueElem === null) continue;
 
-    // highlight
+    // highlight cue
     cueElem.classList.add('bold');
 
-    // scroll
+    // scroll to cue
     let transcriptIsSynced = false;
     const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
     if (syncTranscriptElemChecked !== null) {
@@ -54,6 +57,19 @@ function highlightScrollCue() {
     if (transcriptIsSynced) {
       cueElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+  }
+}
+
+function updateCaption(e) {
+  if (trackElem.track === null) return;
+  const activeCues = trackElem.track.activeCues;
+
+  const captions = document.getElementById('captions');
+  if (captions === null) return;
+
+  captions.textContent = '';
+  for (const activeCue of activeCues) {
+    captions.textContent += activeCue.text;
   }
 }
 
@@ -76,7 +92,7 @@ function unsyncTranscript(e) {
   prevScrollTop = scrollTop;
 }
 
-function updateTranscriptSync() {
+function updateTranscriptSync(e) {
   let transcriptIsSynced = false;
   const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
   if (syncTranscriptElemChecked !== null) {
@@ -85,6 +101,6 @@ function updateTranscriptSync() {
   
   if (transcriptIsSynced) {
     console.log('enable transcript scroll')
-    highlightScrollCue();
+    updateTranscription(e);
   }
 }

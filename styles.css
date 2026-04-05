@@ -169,10 +169,17 @@ html:not(:has(#toggleVideo:checked)) {
   bottom: 0;
   background-color: #00000080;
   color: white;
+  font-size: 1.2em;
 }
 html:has(#toggleCaptions:checked) {
   .captions {
     display: block;
+  }
+}
+html:has(#toggleVideo:checked) {
+  .captions {
+    bottom: 50%;
+    translate: 0 50%;
   }
 }
 
