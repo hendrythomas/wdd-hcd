@@ -1,5 +1,7 @@
 let trackElem;
 let transcriptElem;
+let transcriptIsScrolling = true;
+let prevScrollTop = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   trackElem = document.getElementById('track');
@@ -11,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', highlightScrollCue);
 
-  transcriptElem.addEventListener('scroll', disableCueScroll);
+  transcriptElem.addEventListener('scroll', unsyncTranscript);
 
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
 });
 
-function insertTranscript(e) {
+function insertTranscript() {
   if (trackElem.track === null) return;
 
   for (const cue of trackElem.track.cues) {
@@ -28,7 +30,7 @@ function insertTranscript(e) {
   }
 }
 
-function highlightScrollCue(e) {
+function highlightScrollCue() {
   if (trackElem.track === null) return;
   const activeCues = trackElem.track.activeCues;
   
@@ -36,11 +38,34 @@ function highlightScrollCue(e) {
     const cueElem = transcriptElem.querySelector(`[data-start-time="${activeCue.startTime}"]`);
     if (cueElem === null) continue;
 
+    // highlight
     cueElem.classList.add('bold');
-    cueElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // scroll
+    if (transcriptIsScrolling) {
+      cueElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 }
 
-function disableCueScroll(e) {
-  console.log('u scrolled')
+function unsyncTranscript(e) {
+  const scrollTop = e.target.scrollTop;
+  const scrollDelta = scrollTop - prevScrollTop;
+
+  // only on up scroll
+  if (scrollDelta < 0) {
+    const transcriptHoverElem = document.querySelector('#transcript:hover');
+    if (transcriptHoverElem !== null) {
+      console.log('disable transcript scroll')
+      transcriptIsScrolling = false;
+    }
+  }
+
+  prevScrollTop = scrollTop;
+}
+
+function syncTranscript() {
+  console.log('enable transcript scroll')
+  transcriptIsScrolling = true;
+  highlightScrollCue();
 }
