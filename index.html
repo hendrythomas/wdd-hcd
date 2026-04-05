@@ -19,7 +19,16 @@
       <h2>Podcast Episode #1</h2>
       <div class="player-box">
         <!-- <video></video> -->
-        <div class="player"></div>
+        <div class="player">
+          <img src="./assets/test.png">
+          <div class="captions" id="captions">subtitle</div>
+        </div>
+        <div class="player-controls">
+          <div class="button">
+            <input type="checkbox" id="toggleCaptions">
+            <i class="material-symbols-outlined"></i>
+          </div>
+        </div>
         <audio src="./data/example1.mp3" controls>
           <track
             default
@@ -29,33 +38,24 @@
             src="./data/example1.vtt"
             id="track">
         </audio>
+        <!-- <span>test</span> -->
       </div>
-      <div class="buttons">
+      <div class="layout-controls">
         <div class="button">
           <input type="checkbox" id="collapseTranscript">
-          <i class="material-symbols-outlined">right_panel_close</i>
+          <i class="material-symbols-outlined"></i>
         </div>
         <div class="button">
           <input type="checkbox" id="collapsePlayer">
-          <i class="material-symbols-outlined">left_panel_close</i>
+          <i class="material-symbols-outlined"></i>
         </div>
       </div>
       <div class="volume" id="volume"></div>
-      <!-- <section class="transcript" id="transcript">
-        <header>
-          <h3>Transcript</h3>
-          <button class="button" onclick="window.print()">
-            <i class="material-symbols-outlined">print</i>
-          </button>
-        </header>
-        <span id="transcript-text">
-        </span>
-      </section> -->
       <div class="transcript-box">
         <header>
           <h3>Transcript</h3>
-          <button class="button" onclick="window.print()">
-            <i class="material-symbols-outlined">print</i>
+          <button class="button" id="printTranscript" onclick="window.print()">
+            <i class="material-symbols-outlined"></i>
           </button>
         </header>
         <section id="transcript"></section>
