@@ -1,6 +1,5 @@
 let trackElem;
 let transcriptElem;
-let transcriptIsScrolling = true;
 let prevScrollTop = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,11 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   transcriptElem = document.getElementById('transcript');
   if (transcriptElem === null) return;
+
+  const syncTranscriptElem = document.getElementById('syncTranscript');
+  if (syncTranscriptElem === null) return;
   
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', highlightScrollCue);
 
   transcriptElem.addEventListener('scroll', unsyncTranscript);
+  
+  syncTranscriptElem.addEventListener('change', updateTranscriptSync)
 
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
@@ -42,7 +46,12 @@ function highlightScrollCue() {
     cueElem.classList.add('bold');
 
     // scroll
-    if (transcriptIsScrolling) {
+    let transcriptIsSynced = false;
+    const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
+    if (syncTranscriptElemChecked !== null) {
+      transcriptIsSynced = true;
+    }
+    if (transcriptIsSynced) {
       cueElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
@@ -56,16 +65,26 @@ function unsyncTranscript(e) {
   if (scrollDelta < 0) {
     const transcriptHoverElem = document.querySelector('#transcript:hover');
     if (transcriptHoverElem !== null) {
+      const syncTranscriptElem = document.getElementById('syncTranscript');
+      if (syncTranscriptElem === null) return;
+
+      syncTranscriptElem.checked = false;
       console.log('disable transcript scroll')
-      transcriptIsScrolling = false;
     }
   }
 
   prevScrollTop = scrollTop;
 }
 
-function syncTranscript() {
-  console.log('enable transcript scroll')
-  transcriptIsScrolling = true;
-  highlightScrollCue();
+function updateTranscriptSync() {
+  let transcriptIsSynced = false;
+  const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
+  if (syncTranscriptElemChecked !== null) {
+    transcriptIsSynced = true;
+  }
+  
+  if (transcriptIsSynced) {
+    console.log('enable transcript scroll')
+    highlightScrollCue();
+  }
 }

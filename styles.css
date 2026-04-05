@@ -244,8 +244,11 @@ html:has(#collapseTranscript:checked) {
 }
 
 #syncTranscript {
-  i::after {
-    content: 'sync_arrow_down';
+  ~ i::after {
+    content: 'arrow_circle_down';
+  }
+  &:checked ~ i {
+    font-variation-settings: 'FILL' 1;
   }
 }
 
