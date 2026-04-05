@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   transcriptElem = document.getElementById('transcript');
   if (transcriptElem === null) return;
 
-  const syncTranscriptElem = document.getElementById('syncTranscript');
-  if (syncTranscriptElem === null) return;
+  const transcriptSyncElem = document.getElementById('syncTranscript');
+  if (transcriptSyncElem === null) return;
   
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', (e) => {
@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCaption(e);
   });
 
-  transcriptElem.addEventListener('scroll', unsyncTranscript);
+  // transcriptElem.addEventListener('scroll', unsyncTranscript);
   
-  syncTranscriptElem.addEventListener('change', updateTranscriptSync)
+  transcriptSyncElem.addEventListener('change', onTranscriptSyncChange)
 
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
@@ -30,10 +30,18 @@ function insertTranscript(e) {
   if (trackElem.track === null) return;
 
   for (const cue of trackElem.track.cues) {
-    const p = document.createElement('p');
-    p.innerText = cue.text;
-    p.dataset.startTime = cue.startTime;
-    transcriptElem.appendChild(p);
+    const captionElem = document.createElement('p');
+    captionElem.innerText = cue.text;
+    captionElem.dataset.startTime = cue.startTime;
+
+    const timestampElem = document.createElement('button');
+    timestampElem.classList.add('timestamp');
+    timestampElem.ariaHidden = true;
+    const timestampMinute = cue.startTime.toFixed(0); //TODO: minute notation
+    timestampElem.innerText = timestampMinute;
+    
+    captionElem.prepend(timestampElem);
+    transcriptElem.append(captionElem);
   }
 }
 
@@ -77,7 +85,7 @@ function unsyncTranscript(e) {
   const scrollTop = e.target.scrollTop;
   const scrollDelta = scrollTop - prevScrollTop;
 
-  // only on up scroll
+  // only on user up scroll
   if (scrollDelta < 0) {
     const transcriptHoverElem = document.querySelector('#transcript:hover');
     if (transcriptHoverElem !== null) {
@@ -92,7 +100,7 @@ function unsyncTranscript(e) {
   prevScrollTop = scrollTop;
 }
 
-function updateTranscriptSync(e) {
+function onTranscriptSyncChange(e) {
   let transcriptIsSynced = false;
   const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
   if (syncTranscriptElemChecked !== null) {
