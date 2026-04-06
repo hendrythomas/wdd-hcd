@@ -260,13 +260,15 @@ html:has(#collapseTranscript:checked) {
     margin-top: 0;
   }
 
+  /* caption */
   p.bold {
     font-weight: bold;
   }
 
+  /* timestamp */
   button {
     display: inline-block;
-    min-width: 1.5rem;
+    min-width: 2rem;
     margin-right: 0.5rem;
     color: cornflowerblue;
     cursor: pointer;

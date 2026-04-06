@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // transcriptElem.addEventListener('scroll', unsyncTranscript);
   
-  transcriptSyncElem.addEventListener('change', onTranscriptSyncChange)
+  transcriptSyncElem.addEventListener('change', onTranscriptSyncChange);
 
   const volumeElem = document.getElementById('volume');
   volumeElem.style.setProperty('--volume', '10%');
@@ -44,9 +44,9 @@ function insertTranscript(e) {
     const timestampElem = document.createElement('button');
     timestampElem.classList.add('timestamp');
     timestampElem.ariaHidden = true;
-    const timestampMinute = cue.startTime.toFixed(0); //TODO: minute notation
-    timestampElem.innerText = timestampMinute;
+    timestampElem.innerText = secondsToMins(cue.startTime);
     timestampElem.setAttribute("onclick", `setPlayerTime(${cue.startTime});`);
+
     captionElem.prepend(timestampElem);
     transcriptElem.append(captionElem);
   }
@@ -118,4 +118,12 @@ function onTranscriptSyncChange(e) {
     console.log('enable transcript scroll')
     updateTranscript(e);
   }
+}
+
+function updateVolume(e) {}
+
+// source:
+// https://stackoverflow.com/questions/3733227#41395231
+function secondsToMins(seconds){
+  return `${Math.floor(seconds / 60)}:${('0' + Math.floor(seconds % 60)).slice(-2)}`;
 }
