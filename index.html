@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html data-action="pen">
+<html>
   <head>
     <title>Transcript Viewer</title>
     <link rel="stylesheet" href="./styles.css">
@@ -45,21 +45,25 @@
         <!-- <span>test</span> -->
       </div>
       <div class="layout-controls">
-        <div class="button" title="Player Full Screen">
+        <div class="button" title="Maximize Player">
           <input type="checkbox" id="collapseTranscript">
           <i class="material-symbols-outlined"></i>
         </div>
-        <div class="button" title="Transcript Full Screen">
+        <div class="button" title="Maximize Transcript">
           <input type="checkbox" id="collapsePlayer">
           <i class="material-symbols-outlined"></i>
         </div>
       </div>
-      <div class="volume" id="volume"></div>
+      <div class="peakmeter" id="peakmeter"></div>
       <div class="transcript-box">
         <header>
           <h3>Transcript</h3>
           <div class="button" title="Sync Transcript">
-            <input type="checkbox" id="syncTranscript">
+            <input type="checkbox" id="syncTranscript" checked>
+            <i class="material-symbols-outlined"></i>
+          </div>
+          <div class="button" title="Use Monospace Font">
+            <input type="checkbox" id="monospace">
             <i class="material-symbols-outlined"></i>
           </div>
           <button class="button" id="printTranscript" onclick="window.print()" title="Print Transcript">

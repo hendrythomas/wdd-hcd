@@ -1,3 +1,17 @@
+// source:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function randInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The minimum is inclusive and the maximum is exclusive 
+}
+
+// source:
+// https://stackoverflow.com/questions/3733227#41395231
+function secondsToMins(seconds){
+  return `${Math.floor(seconds / 60)}:${('0' + Math.floor(seconds % 60)).slice(-2)}`;
+}
+
 let trackElem;
 let transcriptElem;
 let prevScrollTop = 0;
@@ -16,14 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
   trackElem.addEventListener('cuechange', (e) => {
     updateTranscript(e);
     updateCaption(e);
+    updatePeakmeter(e);
   });
 
   // transcriptElem.addEventListener('scroll', unsyncTranscript);
   
   transcriptSyncElem.addEventListener('change', onTranscriptSyncChange);
-
-  const volumeElem = document.getElementById('volume');
-  volumeElem.style.setProperty('--volume', '10%');
 });
 
 function setPlayerTime(startTime) {
@@ -55,13 +67,22 @@ function insertTranscript(e) {
 function updateTranscript(e) {
   if (trackElem.track === null) return;
   const activeCues = trackElem.track.activeCues;
+
+  if (transcriptElem === null) return;
+
+  // remove highlight
+  //TODO: probably not the way to do it
+  const highlightElems = transcriptElem.querySelectorAll('.highlight');
+  for (const highlightElem of highlightElems) {
+    highlightElem.classList.remove('highlight');
+  }
   
   for (const activeCue of activeCues) {
     const cueElem = transcriptElem.querySelector(`[data-start-time="${activeCue.startTime}"]`);
     if (cueElem === null) continue;
 
     // highlight cue
-    cueElem.classList.add('bold');
+    cueElem.classList.add('highlight');
 
     // scroll to cue
     let transcriptIsSynced = false;
@@ -120,10 +141,16 @@ function onTranscriptSyncChange(e) {
   }
 }
 
-function updateVolume(e) {}
+function updatePeakmeter(e) {
+  const peakmeterElem = document.getElementById('peakmeter');
+  if (peakmeterElem === null) return;
 
-// source:
-// https://stackoverflow.com/questions/3733227#41395231
-function secondsToMins(seconds){
-  return `${Math.floor(seconds / 60)}:${('0' + Math.floor(seconds % 60)).slice(-2)}`;
+  const samplePeak = randInt(25, 76);
+  peakmeterElem.style.setProperty('--volume', samplePeak);
+  
+  // animate
+  peakmeterElem.classList.remove('anim-fall');
+  requestAnimationFrame(() => {
+    peakmeterElem.classList.add('anim-fall');
+  });
 }
