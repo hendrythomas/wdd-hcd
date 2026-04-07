@@ -86,7 +86,7 @@ function updateTranscript(e) {
 
     // scroll to cue
     let transcriptIsSynced = false;
-    const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
+    const syncTranscriptElemChecked = document.querySelector('#syncTranscript :checked');
     if (syncTranscriptElemChecked !== null) {
       transcriptIsSynced = true;
     }
@@ -130,7 +130,7 @@ function unsyncTranscript(e) {
 
 function onTranscriptSyncChange(e) {
   let transcriptIsSynced = false;
-  const syncTranscriptElemChecked = document.querySelector('#syncTranscript:checked');
+  const syncTranscriptElemChecked = document.querySelector('#syncTranscript :checked');
   if (syncTranscriptElemChecked !== null) {
     transcriptIsSynced = true;
   }
@@ -150,7 +150,7 @@ function updatePeakmeter(e) {
   
   // animate
   peakmeterElem.classList.remove('anim-fall');
-  requestAnimationFrame(() => {
+  setTimeout(function(){
     peakmeterElem.classList.add('anim-fall');
-  });
+  }, 10);
 }

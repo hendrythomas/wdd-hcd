@@ -83,14 +83,14 @@ main {
     color: var(--text);
   }
 }
-html:has(#collapseTranscript:checked) main {
+html:has(#collapseTranscript :checked) main {
   grid-template-columns: 1fr auto;
   grid-template-areas:
     'title title'
     'player buttons'
     'player volume';
 }
-html:has(#collapsePlayer:checked) main {
+html:has(#collapsePlayer :checked) main {
   grid-template-columns: auto 1fr;
   grid-template-areas:
     'title title'
@@ -106,14 +106,14 @@ html:has(#collapsePlayer:checked) main {
       'player volume'
       'transcript buttons';
   }
-  html:has(#collapseTranscript:checked) main {
+  html:has(#collapseTranscript :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
       'player volume'
       'player buttons';
   }
-  html:has(#collapsePlayer:checked) main {
+  html:has(#collapsePlayer :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
@@ -149,11 +149,11 @@ html:has(#collapsePlayer:checked) main {
     height: 100%;
   }
 }
-html:has(#collapsePlayer:checked) .player-box {
+html:has(#collapsePlayer :checked) .player-box {
   display: none;
 }
 
-html:not(:has(#toggleCover:checked)) .cover {
+html:not(:has(#toggleCover :checked)) .cover {
   display: none;
 }
 
@@ -171,28 +171,28 @@ html:not(:has(#toggleCover:checked)) .cover {
   color: white;
   font-size: 1.2em;
 }
-html:has(#toggleCaptions:checked) .captions {
+html:has(#toggleCaptions :checked) .captions {
   display: block;
 }
-html:has(#toggleCover:checked) .captions {
+html:has(#toggleCover :checked) .captions {
   bottom: 50%;
   translate: 0 50%;
 }
 
 #toggleCaptions {
-  ~ i::after {
+  > i::after {
     content: 'closed_caption';
   }
-  &:checked ~ i {
+  &:has(:checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
 
 #toggleCover {
-  ~ i::after {
+  > i::after {
     content: 'headphones';
   }
-  &:checked ~ i::after {
+  &:has(:checked) > i::after {
     content: 'movie';
   }
 }
@@ -210,7 +210,7 @@ html:has(#toggleCover:checked) .captions {
   color: var(--text);
   overflow: hidden;
 }
-html:has(#collapseTranscript:checked) .transcript-box {
+html:has(#collapseTranscript :checked) .transcript-box {
   display: none;
 }
 
@@ -224,11 +224,14 @@ html:has(#collapseTranscript:checked) .transcript-box {
   border-bottom: 1px var(--bg-3) solid;
 
   > * {
+    flex-shrink: 0;
     margin: 0;
   }
 
   > h3 {
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
     /* text-align: center; */
     font-size: inherit;
   }
@@ -263,7 +266,7 @@ html:has(#collapseTranscript:checked) .transcript-box {
     }
   }
 }
-html:has(#monospace:checked) .transcript-box > section {
+html:has(#monospace :checked) .transcript-box > section {
   font-family: monospace;
   
   p {
@@ -276,19 +279,19 @@ html:has(#monospace:checked) .transcript-box > section {
 }
 
 #syncTranscript {
-  ~ i::after {
+  > i::after {
     content: 'auto_stories';
   }
-  &:checked ~ i {
+  &:has(:checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
 
 #monospace {
-  ~ i::after {
+  > i::after {
     content: 'font_download';
   }
-  &:checked ~ i {
+  &:has(:checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
@@ -297,6 +300,9 @@ html:has(#monospace:checked) .transcript-box > section {
   > i::after {
     content: 'print';
   }
+}
+html:has(#collapsePlayer input:not(:checked)) #printTranscript {
+  display: none;
 }
 
 /* MARK: Layout_controls
@@ -314,26 +320,26 @@ html:has(#monospace:checked) .transcript-box > section {
 }
 
 #collapseTranscript {
-  ~ i::after {
+  > i::after {
     content: 'right_panel_close';
   }
-  &:checked ~ i {
+  &:has(:checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
 
 #collapsePlayer {
-  ~ i::after {
+  > i::after {
     content: 'left_panel_close';
   }
-  &:checked ~ i {
+  &:has(:checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
 
 /* activate one button at a time */
-html:has(#collapseTranscript:checked) .button:has(#collapsePlayer),
-html:has(#collapsePlayer:checked) .button:has(#collapseTranscript) {
+html:has(#collapseTranscript :checked) #collapsePlayer,
+html:has(#collapsePlayer :checked) #collapseTranscript {
   opacity: 0.2;
   filter: saturate(0);
   pointer-events: none;
