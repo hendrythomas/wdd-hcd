@@ -399,7 +399,7 @@ html:has(#collapsePlayer input:not(:checked)) {
     color: var(--icon-hover);
   }
   &:focus-visible,
-  &:focus-within {
+  &:has(:focus-visible) {
     outline: auto;
   }
   
