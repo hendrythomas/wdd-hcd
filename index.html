@@ -24,11 +24,11 @@
           <div class="captions" id="captions"></div>
         </div>
         <div class="player-controls">
-          <label class="button" id="toggleCaptions" title="Toggle Captions">
+          <label class="icon-btn" id="toggleCaptions" title="Toggle Captions">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
           </label>
-          <label class="button" id="toggleCover" title="Toggle Cover">
+          <label class="icon-btn" id="toggleCover" title="Toggle Cover">
             <input type="checkbox" checked>
             <i class="material-symbols-outlined"></i>
           </label>
@@ -45,11 +45,15 @@
         <!-- <span>test</span> -->
       </div>
       <div class="layout-controls">
-        <label class="button" id="collapseTranscript" title="Maximize Player">
+        <label class="icon-btn" id="collapseTranscript" title="Maximize Player">
           <input type="checkbox">
           <i class="material-symbols-outlined"></i>
         </label>
-        <label class="button" id="collapsePlayer" title="Maximize Transcript">
+        <label class="icon-btn" id="collapsePlayer" title="Maximize Transcript">
+          <input type="checkbox">
+          <i class="material-symbols-outlined"></i>
+        </label>
+        <label class="icon-btn" id="playPause" title="Play/Pause">
           <input type="checkbox">
           <i class="material-symbols-outlined"></i>
         </label>
@@ -58,17 +62,17 @@
       <div class="transcript-box">
         <header>
           <h3>Transcript</h3>
-          <label class="button" id="syncTranscript" title="Sync Transcript">
+          <label class="icon-btn" id="syncTranscript" title="Sync Transcript">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
           </label>
-          <label class="button" id="monospace" title="Use Monospace Font">
+          <label class="icon-btn" id="monospace" title="Use Monospace Font">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
           </label>
-          <button class="button" id="printTranscript" onclick="window.print()" title="Print Transcript">
+          <icon-btn class="icon-btn" id="printTranscript" onclick="window.print()" title="Print Transcript">
             <i class="material-symbols-outlined"></i>
-          </button>
+          </icon-btn>
         </header>
         <section id="transcript"></section>
       </div>

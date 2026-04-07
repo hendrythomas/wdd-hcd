@@ -103,22 +103,22 @@ html:has(#collapsePlayer :checked) main {
     grid-template-rows:    auto auto 1fr;
     grid-template-areas:
       'title title'
-      'player volume'
-      'transcript buttons';
+      'player buttons'
+      'transcript volume';
   }
   html:has(#collapseTranscript :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
-      'player volume'
-      'player buttons';
+      'player buttons'
+      'player volume';
   }
   html:has(#collapsePlayer :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
-      'transcript volume'
-      'transcript buttons';
+      'transcript buttons'
+      'transcript volume';
   }
 }
 
@@ -249,6 +249,15 @@ html:has(#collapseTranscript :checked) .transcript-box {
   p.highlight {
     font-weight: bold;
   }
+  p.happy::after {
+    content: " 😄";
+  }
+  p.angry::after {
+    content: " 😡";
+  }
+  p.sad::after {
+    content: " 😰";
+  }
 
   /* timestamp */
   button {
@@ -345,8 +354,38 @@ html:has(#collapsePlayer :checked) #collapseTranscript {
   pointer-events: none;
   user-select: none;
 }
+@media only screen and (max-width: 600px) {
+  #collapseTranscript {
+    > i::after {
+      content: 'bottom_panel_close';
+    }
+  }
+  
+  #collapsePlayer {
+    > i::after {
+      content: 'top_panel_close';
+    }
+  }
+}
 
-.button {
+#playPause {
+  > i {
+    font-variation-settings: 'FILL' 1;
+  }
+  > i::after {
+    content: 'play_arrow';
+  }
+  &:has(:checked) > i::after {
+    content: 'pause';
+  }
+}
+html:has(#collapsePlayer input:not(:checked)) {
+  #playPause {
+    display: none;
+  }
+}
+
+.icon-btn {
   position: relative;
   width:  40px;
   height: 40px;
