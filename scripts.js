@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const transcriptSyncElem = document.getElementById('syncTranscript');
   if (transcriptSyncElem === null) return;
   
+  const audioElem = document.getElementById('audio');
+  if (audioElem === null) return;
+
+  const playPauseElem = document.getElementById('playPause');
+  if (playPauseElem === null) return;
+  
   trackElem.addEventListener('load', insertTranscript);
   trackElem.addEventListener('cuechange', (e) => {
     updateTranscript(e);
@@ -36,6 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // transcriptElem.addEventListener('scroll', unsyncTranscript);
   
   transcriptSyncElem.addEventListener('change', onTranscriptSyncChange);
+
+  playPauseElem.addEventListener('change', playPause);
+
+  audioElem.addEventListener('play', iconPlay);
+  audioElem.addEventListener('pause', iconPause);
 });
 
 function setPlayerTime(startTime) {
@@ -49,9 +60,9 @@ function insertTranscript(e) {
   if (trackElem.track === null) return;
 
   for (const cue of trackElem.track.cues) {
-    const captionElem = document.createElement('p');
-    captionElem.innerText = cue.text;
-    captionElem.dataset.startTime = cue.startTime;
+    const cueElem = document.createElement('p');
+    cueElem.innerText = cue.text;
+    cueElem.dataset.startTime = cue.startTime;
 
     const timestampElem = document.createElement('button');
     timestampElem.classList.add('timestamp');
@@ -59,8 +70,19 @@ function insertTranscript(e) {
     timestampElem.innerText = secondsToMins(cue.startTime);
     timestampElem.setAttribute("onclick", `setPlayerTime(${cue.startTime});`);
 
-    captionElem.prepend(timestampElem);
-    transcriptElem.append(captionElem);
+    cueElem.prepend(timestampElem);
+    transcriptElem.append(cueElem);
+
+    const twst = randInt(0, 30);
+    if (twst < 10) {
+      cueElem.classList.add('happy');
+    }
+    if (twst === 11) {
+      cueElem.classList.add('angry');
+    }
+    if (twst === 12) {
+      cueElem.classList.add('sad');
+    }
   }
 }
 
@@ -153,4 +175,29 @@ function updatePeakmeter(e) {
   setTimeout(function(){
     peakmeterElem.classList.add('anim-fall');
   }, 10);
+}
+
+function playPause(e) {
+  const audioElem = document.getElementById('audio');
+  if (audioElem === null) return;
+  
+  const isPlaying = (!audioElem.paused && audioElem.duration > 0);
+  if (isPlaying) {
+    audioElem.pause();
+  } else {
+    audioElem.play();
+  }
+}
+
+function iconPlay(e) {
+  const checkbox = document.querySelector('#playPause input');
+  if (checkbox === null) return;
+
+  checkbox.checked = true;
+}
+function iconPause(e) {
+  const checkbox = document.querySelector('#playPause input');
+  if (checkbox === null) return;
+  
+  checkbox.checked = false;
 }
