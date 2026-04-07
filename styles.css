@@ -399,7 +399,7 @@ html:has(#collapsePlayer input:not(:checked)) {
     color: var(--icon-hover);
   }
   &:focus-visible,
-  &:has(:focus-visible) {
+  &:focus-within {
     outline: auto;
   }
   
@@ -409,8 +409,10 @@ html:has(#collapsePlayer input:not(:checked)) {
     user-select: none;
   }
   
-  > input[type='checkbox'] {
-    display: none;
+  > input {
+    position: absolute;
+    width:  100%;
+    height: 100%;
   }
 }
 
