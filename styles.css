@@ -301,6 +301,7 @@ html:has(#monospace :checked) .transcript-box > section {
     content: 'print';
   }
 }
+/* only show in full screen */
 html:has(#collapsePlayer input:not(:checked)) #printTranscript {
   display: none;
 }
@@ -336,7 +337,6 @@ html:has(#collapsePlayer input:not(:checked)) #printTranscript {
     font-variation-settings: 'FILL' 1;
   }
 }
-
 /* activate one button at a time */
 html:has(#collapseTranscript :checked) #collapsePlayer,
 html:has(#collapsePlayer :checked) #collapseTranscript {
@@ -371,9 +371,7 @@ html:has(#collapsePlayer :checked) #collapseTranscript {
   }
   
   > input[type='checkbox'] {
-    position: absolute;
-    width:  100%;
-    height: 100%;
+    display: none;
   }
 }
 

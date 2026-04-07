@@ -24,14 +24,14 @@
           <div class="captions" id="captions"></div>
         </div>
         <div class="player-controls">
-          <div class="button" id="toggleCaptions" title="Toggle Captions">
+          <label class="button" id="toggleCaptions" title="Toggle Captions">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
-          </div>
-          <div class="button" id="toggleCover" title="Toggle Cover">
+          </label>
+          <label class="button" id="toggleCover" title="Toggle Cover">
             <input type="checkbox" checked>
             <i class="material-symbols-outlined"></i>
-          </div>
+          </label>
         </div>
         <audio id="audio" src="./data/example1.mp3" controls>
           <track
@@ -45,27 +45,27 @@
         <!-- <span>test</span> -->
       </div>
       <div class="layout-controls">
-        <div class="button" id="collapseTranscript" title="Maximize Player">
+        <label class="button" id="collapseTranscript" title="Maximize Player">
           <input type="checkbox">
           <i class="material-symbols-outlined"></i>
-        </div>
-        <div class="button" id="collapsePlayer" title="Maximize Transcript">
+        </label>
+        <label class="button" id="collapsePlayer" title="Maximize Transcript">
           <input type="checkbox">
           <i class="material-symbols-outlined"></i>
-        </div>
+        </label>
       </div>
       <div class="peakmeter" id="peakmeter"></div>
       <div class="transcript-box">
         <header>
           <h3>Transcript</h3>
-          <div class="button" id="syncTranscript" title="Sync Transcript">
+          <label class="button" id="syncTranscript" title="Sync Transcript">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
-          </div>
-          <div class="button" id="monospace" title="Use Monospace Font">
+          </label>
+          <label class="button" id="monospace" title="Use Monospace Font">
             <input type="checkbox">
             <i class="material-symbols-outlined"></i>
-          </div>
+          </label>
           <button class="button" id="printTranscript" onclick="window.print()" title="Print Transcript">
             <i class="material-symbols-outlined"></i>
           </button>
