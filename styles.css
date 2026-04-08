@@ -254,8 +254,8 @@ html:has(#collapseTranscript > :checked) .transcript-box {
   p.angry::after {
     content: ' 😡';
   }
-  p.sad::after {
-    content: ' 😰';
+  p.shocked::after {
+    content: ' 😱';
   }
 
   /* timestamp */

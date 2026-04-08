@@ -81,7 +81,7 @@ function insertTranscript(e) {
       cueElem.classList.add('angry');
     }
     if (twst === 12) {
-      cueElem.classList.add('sad');
+      cueElem.classList.add('shocked');
     }
   }
 }
