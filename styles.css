@@ -1,8 +1,7 @@
 /* MARK: HTML
 */
 
-html {
-  --main-width: clamp(50%, 1000px, 100%);
+:root {
   --bg-1: #ffffff;
   --bg-2: #e6e6e6;
   --bg-3: #cccccc;
@@ -12,7 +11,7 @@ html {
   scrollbar-color: #00000060 transparent;
 }
 @media (prefers-color-scheme: dark) {
-  html {
+  :root {
     --bg-1: #262626;
     --bg-2: #404040;
     --bg-3: #494949;
@@ -83,14 +82,14 @@ main {
     color: var(--text);
   }
 }
-html:has(#collapseTranscript :checked) main {
+html:has(#collapseTranscript > :checked) main {
   grid-template-columns: 1fr auto;
   grid-template-areas:
     'title title'
     'player buttons'
     'player volume';
 }
-html:has(#collapsePlayer :checked) main {
+html:has(#collapsePlayer > :checked) main {
   grid-template-columns: auto 1fr;
   grid-template-areas:
     'title title'
@@ -106,14 +105,14 @@ html:has(#collapsePlayer :checked) main {
       'player buttons'
       'transcript volume';
   }
-  html:has(#collapseTranscript :checked) main {
+  html:has(#collapseTranscript > :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
       'player buttons'
       'player volume';
   }
-  html:has(#collapsePlayer :checked) main {
+  html:has(#collapsePlayer > :checked) main {
     grid-template-rows: auto 1fr 1fr;
     grid-template-areas:
       'title title'
@@ -140,7 +139,7 @@ html:has(#collapsePlayer :checked) main {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: var(--bg-1);
+  background-color: black;
   outline: 1px var(--bg-3) solid;
   display: flex;
   justify-content: center;
@@ -149,11 +148,11 @@ html:has(#collapsePlayer :checked) main {
     height: 100%;
   }
 }
-html:has(#collapsePlayer :checked) .player-box {
+html:has(#collapsePlayer > :checked) .player-box {
   display: none;
 }
 
-html:not(:has(#toggleCover :checked)) .cover {
+html:not(:has(#toggleCover > :checked)) .cover {
   display: none;
 }
 
@@ -171,10 +170,10 @@ html:not(:has(#toggleCover :checked)) .cover {
   color: white;
   font-size: 1.2em;
 }
-html:has(#toggleCaptions :checked) .captions {
+html:has(#toggleCaptions > :checked) .captions {
   display: block;
 }
-html:has(#toggleCover :checked) .captions {
+html:has(#toggleCover > :checked) .captions {
   bottom: 50%;
   translate: 0 50%;
 }
@@ -183,7 +182,7 @@ html:has(#toggleCover :checked) .captions {
   > i::after {
     content: 'closed_caption';
   }
-  &:has(:checked) > i {
+  &:has(> :checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
@@ -192,7 +191,7 @@ html:has(#toggleCover :checked) .captions {
   > i::after {
     content: 'headphones';
   }
-  &:has(:checked) > i::after {
+  &:has(> :checked) > i::after {
     content: 'movie';
   }
 }
@@ -210,7 +209,7 @@ html:has(#toggleCover :checked) .captions {
   color: var(--text);
   overflow: hidden;
 }
-html:has(#collapseTranscript :checked) .transcript-box {
+html:has(#collapseTranscript > :checked) .transcript-box {
   display: none;
 }
 
@@ -250,13 +249,13 @@ html:has(#collapseTranscript :checked) .transcript-box {
     font-weight: bold;
   }
   p.happy::after {
-    content: " 😄";
+    content: ' 😄';
   }
   p.angry::after {
-    content: " 😡";
+    content: ' 😡';
   }
   p.sad::after {
-    content: " 😰";
+    content: ' 😰';
   }
 
   /* timestamp */
@@ -275,7 +274,7 @@ html:has(#collapseTranscript :checked) .transcript-box {
     }
   }
 }
-html:has(#monospace :checked) .transcript-box > section {
+html:has(#monospace > :checked) .transcript-box > section {
   font-family: monospace;
   
   p {
@@ -291,7 +290,7 @@ html:has(#monospace :checked) .transcript-box > section {
   > i::after {
     content: 'auto_stories';
   }
-  &:has(:checked) > i {
+  &:has(> :checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
@@ -300,7 +299,7 @@ html:has(#monospace :checked) .transcript-box > section {
   > i::after {
     content: 'font_download';
   }
-  &:has(:checked) > i {
+  &:has(> :checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
@@ -333,7 +332,7 @@ html:has(#collapsePlayer input:not(:checked)) #printTranscript {
   > i::after {
     content: 'right_panel_close';
   }
-  &:has(:checked) > i {
+  &:has(> :checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
@@ -342,13 +341,13 @@ html:has(#collapsePlayer input:not(:checked)) #printTranscript {
   > i::after {
     content: 'left_panel_close';
   }
-  &:has(:checked) > i {
+  &:has(> :checked) > i {
     font-variation-settings: 'FILL' 1;
   }
 }
 /* activate one button at a time */
-html:has(#collapseTranscript :checked) #collapsePlayer,
-html:has(#collapsePlayer :checked) #collapseTranscript {
+html:has(#collapseTranscript > :checked) #collapsePlayer,
+html:has(#collapsePlayer > :checked) #collapseTranscript {
   opacity: 0.2;
   filter: saturate(0);
   pointer-events: none;
@@ -375,7 +374,7 @@ html:has(#collapsePlayer :checked) #collapseTranscript {
   > i::after {
     content: 'play_arrow';
   }
-  &:has(:checked) > i::after {
+  &:has(> :checked) > i::after {
     content: 'pause';
   }
 }
@@ -408,13 +407,10 @@ html:has(#collapsePlayer input:not(:checked)) {
     pointer-events: none;
     user-select: none;
   }
-  
-  > input {
-    position: absolute;
-    width:  100%;
-    height: 100%;
-  }
 }
+
+/* MARK: Peak_meter
+*/
 
 .peakmeter {
   --volume: 0;
