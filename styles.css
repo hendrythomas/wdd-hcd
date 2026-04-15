@@ -1,3 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0;
+}
+
+button, a, input[type='checkbox'] {
+  all: unset;
+  box-sizing: border-box;
+}
+
+
 /* MARK: HTML
 */
 
@@ -22,6 +38,32 @@
   }
 }
 
+
+.icon-btn {
+  width:  40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--icon);
+  cursor: pointer;
+
+  &:hover:not(:active) {
+    color: var(--icon-hover);
+  }
+  &:focus-visible,
+  &:has(:focus-visible) {
+    outline: auto;
+  }
+  
+  > i {
+    font-size: 24px;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+
 /* MARK: Body
 */
 
@@ -30,7 +72,7 @@ body {
   justify-content: center;
   background-color: var(--bg-1);
   font-size: 16px;
-  font-family: 'Assistant', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
 }
 
 body > header {
@@ -384,31 +426,6 @@ html:has(#collapsePlayer input:not(:checked)) {
   }
 }
 
-.icon-btn {
-  position: relative;
-  width:  40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--icon);
-  cursor: pointer;
-
-  &:hover:not(:active) {
-    color: var(--icon-hover);
-  }
-  &:focus-visible,
-  &:has(:focus-visible) {
-    outline: auto;
-  }
-  
-  > i {
-    font-size: 24px;
-    pointer-events: none;
-    user-select: none;
-  }
-}
-
 /* MARK: Peak_meter
 */
 
@@ -421,7 +438,13 @@ html:has(#collapsePlayer input:not(:checked)) {
   border: 1px var(--bg-2) solid;
   border-radius: 8px;
   overflow: hidden;
+  container-type: inline-size;
 
+  &::before {
+    opacity: 0.2;
+  }
+
+  &::before,
   &::after {
     content: '';
     display: block;
@@ -431,16 +454,27 @@ html:has(#collapsePlayer input:not(:checked)) {
     height: calc(var(--volume) * 1%);
     background-color: lime;
   }
-  &.anim-fall::after {
-    height: 0%;
-    transition: height 6s ease-out;
+  &.anim-fall {
+    &::before {
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+    &::after {
+      height: 0%;
+      transition: height 1s ease-out;
+    }
   }
 }
 @container style(--volume > 50) {
+  .peakmeter::before,
   .peakmeter::after {
     background-color: orange;
   }
 }
+
+
+/* MARK: Print_styling
+*/
 
 @media print {
   * {
@@ -472,22 +506,16 @@ html:has(#collapsePlayer input:not(:checked)) {
       button {
         display: none;
       }
+      
+      p.happy::after {
+        content: '';
+      }
+      p.angry::after {
+        content: '';
+      }
+      p.shocked::after {
+        content: '';
+      }
     }
   }
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  width:  100%;
-  height: 100%;
-  margin: 0;
-}
-
-button, a, input[type='checkbox'] {
-  all: unset;
-  box-sizing: border-box;
 }
