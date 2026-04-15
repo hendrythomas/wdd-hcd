@@ -187,13 +187,15 @@ html:has(#collapsePlayer > :checked) main {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: black;
+  background-color: var(--bg-1);
   outline: 1px var(--bg-3) solid;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
-  > img {
+  .cover {
     height: 100%;
+    object-fit: contain;
   }
 }
 html:has(#collapsePlayer > :checked) .player-box {
@@ -211,19 +213,19 @@ html:not(:has(#toggleCover > :checked)) .cover {
 }
 
 .captions {
-  display: none;
-  position: absolute;
-  bottom: 0;
+  height: 4rem;
   background-color: #00000080;
   color: white;
   font-size: 1.2em;
+  text-align: center;
+  align-content: end;
 }
-html:has(#toggleCaptions > :checked) .captions {
-  display: block;
-}
-html:has(#toggleCover > :checked) .captions {
-  bottom: 50%;
-  translate: 0 50%;
+html:has(#toggleCover > input:not(:checked)) .captions {
+  position: absolute;
+  height: auto;
+  right: 50%;
+  bottom: 0;
+  translate: 50% 0;
 }
 
 #toggleCaptions {
