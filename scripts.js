@@ -73,15 +73,26 @@ function insertTranscript(e) {
     cueElem.prepend(timestampElem);
     transcriptElem.append(cueElem);
 
-    const twst = randInt(0, 30);
-    if (twst < 10) {
+    const testEmotion = randInt(0, 30);
+    if (testEmotion < 10) {
       cueElem.classList.add('happy');
     }
-    if (twst === 11) {
+    if (testEmotion === 11) {
       cueElem.classList.add('angry');
     }
-    if (twst === 12) {
+    if (testEmotion === 12) {
       cueElem.classList.add('shocked');
+    }
+
+    const testPerson = randInt(0, 3);
+    if (testPerson === 0) {
+      cueElem.classList.add('p1');
+    }
+    if (testPerson === 1) {
+      cueElem.classList.add('p2');
+    }
+    if (testPerson === 2) {
+      cueElem.classList.add('p3');
     }
   }
 }

@@ -24,6 +24,9 @@ button, a, input[type='checkbox'] {
   --text: #303030;
   --icon: #505050;
   --icon-hover: #909090;
+  --red: crimson;
+  --purple: purple;
+  --green: green;
   scrollbar-color: #00000060 transparent;
 }
 @media (prefers-color-scheme: dark) {
@@ -34,6 +37,9 @@ button, a, input[type='checkbox'] {
     --text: #e6e6e6;
     --icon: #cccccc;
     --icon-hover: #ffffff;
+    --red: tomato;
+    --purple: plum;
+    --green: palegreen;
     scrollbar-color: #ffffff60 transparent;
   }
 }
@@ -287,17 +293,14 @@ html:has(#collapseTranscript > :checked) .transcript-box {
   }
 
   /* caption */
-  p.highlight {
-    font-weight: bold;
-  }
-  p.happy::after {
-    content: ' 😄';
-  }
-  p.angry::after {
-    content: ' 😡';
-  }
-  p.shocked::after {
-    content: ' 😱';
+  p {
+    &.highlight { font-weight: bold; }
+    &.happy::after   { content: ' 😄'; }
+    &.angry::after   { content: ' 😡'; }
+    &.shocked::after { content: ' 😱'; }
+    &.p1 { color: var(--red); }
+    &.p2 { color: var(--purple); }
+    &.p3 { color: var(--green); }
   }
 
   /* timestamp */
@@ -478,8 +481,8 @@ html:has(#collapsePlayer input:not(:checked)) {
 
 @media print {
   * {
-    color: black;
-    font-family: monospace;
+    color: black !important;
+    font-family: monospace !important;
     opacity: 1 !important;
   }
   
