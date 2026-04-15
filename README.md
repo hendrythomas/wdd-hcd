@@ -113,6 +113,7 @@ TOEGEVOEGD:
 *  ondertiteling onder cover
 *  video
 
+
 ## Dag 4
 
 ### Feedback expert?
@@ -120,6 +121,18 @@ TOEGEVOEGD:
 bestaande features testen
 
 
+## Dag 5
+
+### Feedback human 3
+
+*  kleuren of wat anders
+
+*  info podcast
+*  namen aan het begin van de eerste caption van de zin
+*  kleuren zijn goed
+
+
 # Bronnen
 
-https://developer.chrome.com/docs/css-ui/style-queries
+*  https://developer.chrome.com/docs/css-ui/style-queries
+*  MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript
