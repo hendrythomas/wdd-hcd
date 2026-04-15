@@ -213,21 +213,25 @@ html:not(:has(#toggleCover > :checked)) .cover {
 }
 
 .captions {
+  display: none;
   height: 4rem;
-  background-color: #00000080;
   color: white;
   font-size: 1.2em;
   text-align: center;
   align-content: end;
 }
+html:has(#toggleCaptions > :checked) .captions {
+  display: block;
+}
 html:has(#toggleCover > input:not(:checked)) .captions {
   position: absolute;
-  width: max-content;
-  max-width: 100%;
-  height: auto;
   right: 50%;
   bottom: 0;
   translate: 50% 0;
+  width: max-content;
+  max-width: 100%;
+  height: auto;
+  background-color: #00000080;
 }
 
 #toggleCaptions {
