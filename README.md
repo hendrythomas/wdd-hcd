@@ -1,135 +1,142 @@
-# wdd-hcd
+# HCD
 
-## dag 0
+## Dag 0
 
-### log
+### Log
 
-ideeen bedacht
-begin layout, begin javascript
-gelezen over captions
-audio, track html
+*  [Ideeën](#Ideeën) bedacht
+*  Begonnen aan layout
+*  Podcast gekregen van klasgenoot
+*  Web captions onderzocht
+*  Audio geïmplementeerd in HTML
 
-### brainstorm
+### Ideeën
 
-idee 1: caption website
-*  niet nodig, bestaat al
-*  alleen layout, leert niks
+1. ~~Ondertiteling-opties~~
+   *  Bestaat al
+   *  Alleen styling, geen JavaScript
 
-idee 2: caption + tekst features + audio effects
-*  subtitles / volledige tekst / document
-*  audio visualisatie
+2. Ondertiteling + opties/functies voor lezen + audio-effecten
+   *  Ondertiteling / volledige tekst / document
+   *  Visualisatie audio
 
 
-### Feedback human 1
+### Human feedback 1
 
-vragen
-*  Leesbaarheid
-*  Kleur?
-*  Video/cover bij podcasts? ja
-*  Volume voor toon?
+#### Relevante feedback
 
-als je film doet: kijk zonder geluid
-
-relevante feedback:
-*  simpele tekst leesbaarheid
-*  emoji
-*  automatisch spelen, maar handmatig lezen
-*  onderzoek peak meters
-*  niet plek ondertiteling veranderen
-*  films hebben vaak belangrijke achtergrondgeluiden
-*  toggle video/cover
-*  sans serif of monospace
-*  serif ok maar alleen voor lezen
-*  lichte epilepsie, flitsen vermijden
+*  Onderzoek peak meter
+*  Toggle voor video/cover
+*  Simpele tekst voor leesbaarheid
+*  Emoji zijn toegestaan
+*  Audio afspelen, maar het liefst handmatig lezen
+*  Niet de plek van ondertiteling
+*  Achtergrondgeluiden zijn belangrijk in films
+*  Sans serif of monospace
+*  Serif is oké voor lezen
+*  Lichte epilepsie; flitsen vermijden
 
 ### Volgende keer
-*  peak meter
-*  manual scroll
-   *  automatisch net als in youtube
-*  subtitles
+
+*  Peak meter
+*  Handmatige scroll
+*  Ondertiteling
 
 ### Later
-*  transcript tekst effecten
-*  context:
-   *  video informatie
+
+*  Tekst styling voor transcript
+*  Context:
+   *  Informatie podcast
 
 
 ## Dag 1
 
-### Feedback expert?
+### Expert feedback 1
 
-experimenteren
-*  tekst
+*  Experimenteren voor volgende test
+   *  Tekst
 
-#### Notes
-aria-label natuurlijke tekst, vriendelijke tekst
+### Later
 
-### Volgende keer
-
-a/b test (metric: feedback) (verander header titel)
+*  A/B test tekst
 
 
 ## Dag 2
 
 ### Log
 
-style queries voor peak meter
-chrome dveelopers (bronnen)
+*  Responsive layout
+*  Peak meter HTML/CSS
+*  Style queries gebruikt voor kleur peak meter ([bronnen](#bronnen))
 
 ### Volgende keer
 
+*  Handmatige sync
+*  Cover toggle
 
 ## Dag 3
 
-### log
+### Log
 
-TOEGEVOEGD:
-*  sync handmatig
-*  cover toggle
-*  peak meter
-*  timestamps
-*  subtitles
-*  monospace font
+*  Handmatige sync
+*  Cover toggle
+*  Peak meter JavaScript
+*  Timestamps
+*  Ondertiteling
+*  Monospace font
 
-### Feedback human 2
+### Human feedback 2
 
-*  persoon die praat
-*  geen drukke website, content focus
-*  misschien mobile
-*  achtegrondkleur? onderzoek, wss is emotie minder belangrijk dan tekst
-*  subtitles under cover haha undercover
-*  peak meter is duidelijk
-*  overzichtelijke, lichte kleuren in tekst mag
-*  ook testen MET geluid
-*  irritant achtergrond geluid mag wel kleur maar met toggle
-*  font size goed, maar misschien met instelling
-*  winamp???
+#### Relevante feedback
+
+*  Ondertiteling kan beter undercover
+*  Peak meter is duidelijk
+*  Aangeven welke persoon aan het praten is
+*  Font size goed
+*  Gebruikt soms mobile
+*  Focus op content, geen drukke styling
+*  Onafleidende kleuren in tekst zijn toegestaan
+*  Tekst mag irritant zijn als audio irritant is, maar met toggle
 
 ### Volgende keer
 
-*  onderzoek manier om vtt kleur te laten zien in html
-   *  experimenteer met styling
-*  ingeklapte layout voor video controls ipv weghalen
-*  ondertiteling onder cover
-*  video
+*  Onderzoek vtt kleur
+   *  Experimenteer met transcriptie styling
+*  Video controls inklappen ipv weghalen
+*  Ondertiteling onder cover
 
+### Later
+
+*  Indicatie pratende persoon
+*  Font size instelling
+*  Video
 
 ## Dag 4
 
-### Feedback expert?
+### Expert feedback 2
 
-bestaande features testen
+*  Bestaande features testen (aannamens)
+   *  
 
 
 ## Dag 5
 
-### Feedback human 3
+### Human feedback 3
 
-*  kleuren of wat anders
+*  Info podcast
+*  Kleuren zijn goed
+*  Namen aan het begin van de eerste caption van de zin
 
-*  info podcast
-*  namen aan het begin van de eerste caption van de zin
-*  kleuren zijn goed
+## Volgende keer
+
+*  Info podcast
+*  Namen toevoegen (A/B test)
+
+# Ontwerp
+
+emotie tekst
+
+geen achtergrond effecten
 
 
 # Bronnen
