@@ -1,5 +1,7 @@
 # HCD
 
+Exclusive design: https://exclusive-design.vasilis.nl/
+
 ## Dag 0
 
 ### Log
@@ -25,14 +27,19 @@ Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebru
 
 Voor deze iteratie heb ik vooral de testpersoon geobserveerd en om feedback gevraagd.
 
-Feedback:
+#### Feedback
 
 *  Gebruik een toggle voor video/cover
    *  De huidige cover staat altijd op het scherm. 
 *  Onderzoek peak meters
    *  De huide peak meter is onduidelijk.
 
-Notities:
+#### [Prioritise identity](#HCD): Belangrijke informatie over de testpersoon
+
+*  Leesbaarheid en content is belangrijk
+*  Lichte epilepsie; flitsen vermijden
+
+#### Notities
 
 *  Context is belangrijk
 *  Audio afspelen tijdens het lezen, maar het liefst handmatig scrollen
@@ -41,11 +48,6 @@ Notities:
 *  Tijdens het afspelen de ondertiteling niet verplaatsen
 *  Het liefst sans serif of monospace
 *  Serif is oké voor lezen
-
-Belangrijke informatie over de testpersoon:
-
-*  Leesbaarheid en content is belangrijk
-*  Lichte epilepsie; flitsen vermijden
 
 ### Volgende keer
 
@@ -81,7 +83,7 @@ Ik ben van plan om een A/B test te doen voor het transcript.
 
 *  Layout responsive gemaakt
 *  Peak meter element
-   *  Bestaan de peak meters krijgen een kleur gebaseerd op de volume. Hiervoor heb ik style queries gebruikt ([bronnen](#bronnen)).
+   *  Bestaande peak meters krijgen een kleur gebaseerd op de volume. Hiervoor heb ik style queries gebruikt ([bronnen](#bronnen)).
 
 ### Volgende keer
 
@@ -103,29 +105,28 @@ Vandaag heb ik handmatige transcript scroll toegevoegd. Er bestaan meerdere mani
 
 ### Iteratie 2
 
-#### Relevante feedback
-
 Deze iteratie wilde ik de sync toggle testen en meer feedback vragen.
 
-Feedback:
+#### Feedback
 
 *  Toggle voor sync is duidelijk
    *  Automatisch is inderdaad onhandig
 *  Ondertiteling kan beter onder de cover
+   *  Content is belangrijk
 *  Peak meter is duidelijk
-*  Font size goed
+*  Tekstgrootte is goed
 
-Notities:
+#### [Prioritise identity](#HCD): informatie testpersoon
+
+*  Gebruikt soms vergelijkbare websites op mobiel.
+
+#### Notities
 
 *  Aangeven welke persoon aan het praten is
 *  Focus op content, geen drukke styling
 *  Onafleidende kleuren in tekst zijn toegestaan
 *  Tekst mag irritant zijn als audio irritant is, maar met toggle
 *  De tekstgrootte was te klein bij één persoon.
-
-Informatie testpersoon:
-
-*  Gebruikt soms mobile
 
 ### Volgende keer
 
@@ -139,12 +140,21 @@ Informatie testpersoon:
    *  Hier kan ik ook mee experimenteren.
 *  Instelling tekstgrootte
 
+
 ## Dag 4
+
+*  Ik heb kleuren toegevoegd om sprekers aan te duiden.
+*  **[Add nonsense](#HCD)**: ik heb emoji toegevoegd die emotie representeren.
 
 ### Expert feedback
 
 *  Bestaande features testen (aannamens)
-   *  Tekst transcript
+   *  Captions
+
+### Later
+
+*  Kleuren en emoji testen
+*  Captions testen
 
 
 ## Dag 5
@@ -155,7 +165,7 @@ Deze iteratie wilde ik bestaande features testen, zoals de informatie en kleuren
 
 #### Feedback
 
-*  De kleuren in het transcript zijn goed leesbaar en niet afleidend.
+*  De kleuren en emoji in het transcript zijn goed leesbaar en niet afleidend.
 *  De timestamps zijn handig
 *  Naam van de spreker
    *  Misschien aan het begin van de zin
@@ -164,36 +174,36 @@ Deze iteratie wilde ik bestaande features testen, zoals de informatie en kleuren
 ## Volgende keer
 
 *  Info podcast
-* Ik heb meer ideeën voor het aanduiden van de spreker. Hiervoor ga ik een A/B test doen.
+*  Ik heb meer ideeën voor het aanduiden van de spreker. Hiervoor ga ik een test doen.
 
 
 ## Dag 6
 
-experiment spreker
-
 ### Log
 
-### Checkout
+In plaats van namen in de tekst te doen had ik het idee om namen bovenaan te laten zien en te highlighten.
 
-### Volgende keer
+Dit ga ik testen voor de volgende iteratie.
 
 
 ## Dag 7
 
 ### Iteratie 4
 
+De testpersoon heeft geprobeerd de podcast te volgen.
+
 #### Feedback
 
+*  De tekst is duidelijk en niet afleidend.
 *  De captions zijn overbodig als transcript op het scherm staat.
 
-#### Observaties
+#### [Study situation](#HCD): Observaties
 
-De testpersoon kon met gemak de tekst en sprekers voor een deel van de podcast volgen.
+*  De testpersoon kon met gemak de tekst en sprekers voor een deel van de podcast volgen.
 
 ### Volgende keer
 
-*  Captions toggle
-   *  Ik wil de dingen die de testpersoon zelf niet gebruikt weghalen of standaard uitzetten ([exclusive design]()).
+*   **[Ignore conventions](#HCD)**: Ik wil de dingen die de testpersoon zelf niet gebruikt weghalen of standaard uitzetten.
 *  Settings popup om leesbaarheid te verbeteren.
 
 
@@ -206,14 +216,8 @@ De testpersoon kon met gemak de tekst en sprekers voor een deel van de podcast v
 
 #### Volgende keer
 
-*  subtitles afleidende dingen weghalen
-
-
-## Ontwerp
-
-emotie tekst
-
-geen achtergrond effecten
+*  Captions toggle
+*  Settings popup
 
 
 ## Bronnen
