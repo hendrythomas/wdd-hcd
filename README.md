@@ -26,12 +26,13 @@ Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebru
 Voor deze iteratie heb ik vooral de testpersoon geobserveerd en om feedback gevraagd.
 
 Feedback:
+
 *  Gebruik een toggle voor video/cover
    *  De huidige cover staat altijd op het scherm. 
 *  Onderzoek peak meters
    *  De huide peak meter is onduidelijk.
 
-Observaties:
+Notities:
 
 *  Context is belangrijk
 *  Audio afspelen tijdens het lezen, maar het liefst handmatig scrollen
@@ -91,61 +92,80 @@ Ik ben van plan om een A/B test te doen voor het transcript.
 
 ### Log
 
-Vandaag heb ik handmatige sync toegevoegd. Er bestaan meerdere manieren, zoals automatisch of met een toggle. Deze iteratie ga ik een toggle testen.
-
-*  Handmatige sync
 *  Cover toggle
-*  Peak meter JavaScript
+*  Handmatige scroll
+*  Functionaliteit peak meter
 *  Timestamps
 *  Ondertiteling
-*  Monospace font
+*  Monospace font toggle
+
+Vandaag heb ik handmatige transcript scroll toegevoegd. Er bestaan meerdere manieren, zoals automatisch of met een toggle. Deze iteratie ga ik een toggle testen.
 
 ### Iteratie 2
 
 #### Relevante feedback
 
-*  Ondertiteling kan beter undercover
+Deze iteratie wilde ik de sync toggle testen en meer feedback vragen.
+
+Feedback:
+
+*  Toggle voor sync is duidelijk
+   *  Automatisch is inderdaad onhandig
+*  Ondertiteling kan beter onder de cover
 *  Peak meter is duidelijk
-*  Aangeven welke persoon aan het praten is
 *  Font size goed
-*  Gebruikt soms mobile
+
+Notities:
+
+*  Aangeven welke persoon aan het praten is
 *  Focus op content, geen drukke styling
 *  Onafleidende kleuren in tekst zijn toegestaan
 *  Tekst mag irritant zijn als audio irritant is, maar met toggle
+*  De tekstgrootte was te klein bij één persoon.
+
+Informatie testpersoon:
+
+*  Gebruikt soms mobile
 
 ### Volgende keer
 
 *  Onderzoek vtt kleur
-   *  Experimenteer met transcriptie styling
-*  Video controls inklappen ipv weghalen
-*  Ondertiteling onder cover
+   *  Experimenteren met transcriptie styling
+*  Ondertiteling undercover
 
 ### Later
 
 *  Indicatie pratende persoon
-*  Font size instelling
-*  Video
+   *  Hier kan ik ook mee experimenteren.
+*  Instelling tekstgrootte
 
 ## Dag 4
 
 ### Expert feedback
 
 *  Bestaande features testen (aannamens)
-   *  
+   *  Tekst transcript
 
 
 ## Dag 5
 
 ### Iteratie 3
 
-*  Info podcast
-*  Kleuren zijn goed
-*  Namen aan het begin van de eerste caption van de zin
+Deze iteratie wilde ik bestaande features testen, zoals de informatie en kleuren van het transcript.
+
+#### Feedback
+
+*  De kleuren in het transcript zijn goed leesbaar en niet afleidend.
+*  De timestamps zijn handig
+*  Naam van de spreker
+   *  Misschien aan het begin van de zin
+*  De podcast mist informatie.
 
 ## Volgende keer
 
 *  Info podcast
-*  Namen toevoegen (A/B test)
+* Ik heb meer ideeën voor het aanduiden van de spreker. Hiervoor ga ik een A/B test doen.
+
 
 ## Dag 6
 
@@ -162,20 +182,30 @@ experiment spreker
 
 ### Iteratie 4
 
-*  captions overbodig, misschien alleen aan in video modus
-*  
+#### Feedback
+
+*  De captions zijn overbodig als transcript op het scherm staat.
+
+#### Observaties
+
+De testpersoon kon met gemak de tekst en sprekers voor een deel van de podcast volgen.
 
 ### Volgende keer
 
-*  settings popup ipv huidige
+*  Captions toggle
+   *  Ik wil de dingen die de testpersoon zelf niet gebruikt weghalen of standaard uitzetten ([exclusive design]()).
+*  Settings popup om leesbaarheid te verbeteren.
 
 
 ## Dag 8
 
 ### Expert feedback
 
-*  settings popup is goed voor human
-*  details, check vorige feedback
+*  De popup voor settings lijkt een goed idee voor de testpersoon.
+*  Verder werken aan de details
+
+#### Volgende keer
+
 *  subtitles afleidende dingen weghalen
 
 
