@@ -4,11 +4,11 @@
 
 ### Log
 
-*  [Ideeën](#Ideeën) bedacht
-*  Begonnen aan layout
-*  Podcast gekregen van klasgenoot
-*  Web captions onderzocht
-*  Audio geïmplementeerd in HTML
+Vandaag heb ik [ideeën](#Ideeën) bedacht. Omdat ik de testpersoon nog niet heb ontmoet, ben ik begonnen aan een simpel prototype om feedback over te vragen.
+
+Ik heb web captions onderzocht ([bron](#Bronnen)). Ik heb geleerd dat op het web VTT wordt gebruikt.
+
+Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebruik ik het transcript, de cover en de omschrijving. Vandaag heb ik alvast de audio geïmplementeerd in HTML.
 
 ### Ideeën
 
@@ -21,53 +21,66 @@
    *  Visualisatie audio
 
 
-### Human feedback 1
+### Iteratie 1
 
-#### Relevante feedback
+Voor deze iteratie heb ik vooral de testpersoon geobserveerd en om feedback gevraagd.
 
-*  Onderzoek peak meter
-*  Toggle voor video/cover
-*  Simpele tekst voor leesbaarheid
-*  Emoji zijn toegestaan
-*  Audio afspelen, maar het liefst handmatig lezen
-*  Niet de plek van ondertiteling
-*  Achtergrondgeluiden zijn belangrijk in films
-*  Sans serif of monospace
+Feedback:
+*  Gebruik een toggle voor video/cover
+   *  De huidige cover staat altijd op het scherm. 
+*  Onderzoek peak meters
+   *  De huide peak meter is onduidelijk.
+
+Observaties:
+
+*  Context is belangrijk
+*  Audio afspelen tijdens het lezen, maar het liefst handmatig scrollen
+*  De tekst zelf moet simpel blijven
+*  Het gebruk van emoji is toegestaan
+*  Tijdens het afspelen de ondertiteling niet verplaatsen
+*  Het liefst sans serif of monospace
 *  Serif is oké voor lezen
+
+Belangrijke informatie over de testpersoon:
+
+*  Leesbaarheid en content is belangrijk
 *  Lichte epilepsie; flitsen vermijden
 
 ### Volgende keer
 
-*  Peak meter
-*  Handmatige scroll
-*  Ondertiteling
+*  Toggle voor cover toevoegen
+*  Peak meter maken
+*  Handmatige scroll toevoegen
+*  Ondertiteling toevoegen
 
 ### Later
 
-*  Tekst styling voor transcript
-*  Context:
+*  Tekst transcript stylen
+*  Context toevoegen:
    *  Informatie podcast
 
 
 ## Dag 1
 
-### Expert feedback 1
+### Expert feedback
 
-*  Experimenteren voor volgende test
-   *  Tekst
+Volgende test kan ik meer experimenteren:
 
-### Later
+*  Transcript
+*  Peak meter
 
-*  A/B test tekst
+### Volgende keer
+
+Ik ben van plan om een A/B test te doen voor het transcript.
 
 
 ## Dag 2
 
 ### Log
 
-*  Responsive layout
-*  Peak meter HTML/CSS
-*  Style queries gebruikt voor kleur peak meter ([bronnen](#bronnen))
+*  Layout responsive gemaakt
+*  Peak meter element
+   *  Bestaan de peak meters krijgen een kleur gebaseerd op de volume. Hiervoor heb ik style queries gebruikt ([bronnen](#bronnen)).
 
 ### Volgende keer
 
@@ -78,6 +91,8 @@
 
 ### Log
 
+Vandaag heb ik handmatige sync toegevoegd. Er bestaan meerdere manieren, zoals automatisch of met een toggle. Deze iteratie ga ik een toggle testen.
+
 *  Handmatige sync
 *  Cover toggle
 *  Peak meter JavaScript
@@ -85,7 +100,7 @@
 *  Ondertiteling
 *  Monospace font
 
-### Human feedback 2
+### Iteratie 2
 
 #### Relevante feedback
 
@@ -113,7 +128,7 @@
 
 ## Dag 4
 
-### Expert feedback 2
+### Expert feedback
 
 *  Bestaande features testen (aannamens)
    *  
@@ -121,7 +136,7 @@
 
 ## Dag 5
 
-### Human feedback 3
+### Iteratie 3
 
 *  Info podcast
 *  Kleuren zijn goed
@@ -132,14 +147,47 @@
 *  Info podcast
 *  Namen toevoegen (A/B test)
 
-# Ontwerp
+## Dag 6
+
+experiment spreker
+
+### Log
+
+### Checkout
+
+### Volgende keer
+
+
+## Dag 7
+
+### Iteratie 4
+
+*  captions overbodig, misschien alleen aan in video modus
+*  
+
+### Volgende keer
+
+*  settings popup ipv huidige
+
+
+## Dag 8
+
+### Expert feedback
+
+*  settings popup is goed voor human
+*  details, check vorige feedback
+*  subtitles afleidende dingen weghalen
+
+
+## Ontwerp
 
 emotie tekst
 
 geen achtergrond effecten
 
 
-# Bronnen
+## Bronnen
 
+*  https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API
 *  https://developer.chrome.com/docs/css-ui/style-queries
 *  MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript
