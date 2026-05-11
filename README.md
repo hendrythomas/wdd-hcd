@@ -12,6 +12,8 @@ Ik heb web captions onderzocht ([bron](#Bronnen)). Ik heb geleerd dat op het web
 
 Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebruik ik het transcript, de cover en de omschrijving. Vandaag heb ik alvast de audio geïmplementeerd in HTML.
 
+**[Add nonsense](#HCD)**: Ik heb een functie toegevoegd om het transcript te download om uit te printen.
+
 ### Ideeën
 
 1. ~~Ondertiteling-opties~~
@@ -33,6 +35,7 @@ Voor deze iteratie heb ik vooral de testpersoon geobserveerd en om feedback gevr
    *  De huidige cover staat altijd op het scherm. 
 *  Onderzoek peak meters
    *  De huide peak meter is onduidelijk.
+*  Optie om transcript als document te lezen; print optie was hiervoor handig.
 
 #### [Prioritise identity](#HCD): Belangrijke informatie over de testpersoon
 
