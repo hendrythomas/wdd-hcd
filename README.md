@@ -1,4 +1,4 @@
-# HCD
+# HCD Podcast
 
 Exclusive design: https://exclusive-design.vasilis.nl/
 
@@ -12,7 +12,7 @@ Ik heb web captions onderzocht ([bron](#Bronnen)). Ik heb geleerd dat op het web
 
 Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebruik ik het transcript, de cover en de omschrijving. Vandaag heb ik alvast de audio geïmplementeerd in HTML.
 
-**[Add nonsense](#HCD)**: Ik heb een functie toegevoegd om het transcript te download om uit te printen.
+**[Add nonsense](#HCD-Podcast)**: Ik heb een functie toegevoegd om het transcript te download om uit te printen.
 
 ### Ideeën
 
@@ -30,20 +30,17 @@ Ik heb met klasgenoten een testpodcast uitgezocht om te gebruiken. Hiervan gebru
 Voor deze iteratie heb ik vooral de testpersoon geobserveerd en om feedback gevraagd.
 
 #### Feedback
-
 *  Gebruik een toggle voor video/cover
    *  De huidige cover staat altijd op het scherm. 
 *  Onderzoek peak meters
    *  De huide peak meter is onduidelijk.
 *  Optie om transcript als document te lezen; print optie was hiervoor handig.
 
-#### [Prioritise identity](#HCD): Belangrijke informatie over de testpersoon
-
+#### [Prioritise identity](#HCD-Podcast): Belangrijke informatie over de testpersoon
 *  Leesbaarheid en content is belangrijk
 *  Lichte epilepsie; flitsen vermijden
 
 #### Notities
-
 *  Context is belangrijk
 *  Audio afspelen tijdens het lezen, maar het liefst handmatig scrollen
 *  De tekst zelf moet simpel blijven
@@ -111,7 +108,6 @@ Vandaag heb ik handmatige transcript scroll toegevoegd. Er bestaan meerdere mani
 Deze iteratie wilde ik de sync toggle testen en meer feedback vragen.
 
 #### Feedback
-
 *  Toggle voor sync is duidelijk
    *  Automatisch is inderdaad onhandig
 *  Ondertiteling kan beter onder de cover
@@ -119,12 +115,10 @@ Deze iteratie wilde ik de sync toggle testen en meer feedback vragen.
 *  Peak meter is duidelijk
 *  Tekstgrootte is goed
 
-#### [Prioritise identity](#HCD): informatie testpersoon
-
+#### [Prioritise identity](#HCD-Podcast): informatie testpersoon
 *  Gebruikt soms vergelijkbare websites op mobiel.
 
 #### Notities
-
 *  Aangeven welke persoon aan het praten is
 *  Focus op content, geen drukke styling
 *  Onafleidende kleuren in tekst zijn toegestaan
@@ -147,7 +141,7 @@ Deze iteratie wilde ik de sync toggle testen en meer feedback vragen.
 ## Dag 4
 
 *  Ik heb kleuren toegevoegd om sprekers aan te duiden.
-*  **[Add nonsense](#HCD)**: ik heb emoji toegevoegd die emotie representeren.
+*  **[Add nonsense](#HCD-Podcast)**: ik heb emoji toegevoegd die emotie representeren.
 
 ### Expert feedback
 
@@ -196,17 +190,15 @@ Dit ga ik testen voor de volgende iteratie.
 De testpersoon heeft geprobeerd de podcast te volgen.
 
 #### Feedback
-
 *  De tekst is duidelijk en niet afleidend.
 *  De captions zijn overbodig als transcript op het scherm staat.
 
-#### [Study situation](#HCD): Observaties
-
+#### [Study situation](#HCD-Podcast): Observaties
 *  De testpersoon kon met gemak de tekst en sprekers voor een deel van de podcast volgen.
 
 ### Volgende keer
 
-*   **[Ignore conventions](#HCD)**: Ik wil de dingen die de testpersoon zelf niet gebruikt weghalen of standaard uitzetten.
+*   **[Ignore conventions](#HCD-Podcast)**: Ik wil de dingen die de testpersoon zelf niet gebruikt weghalen of standaard uitzetten.
 *  Settings popup om leesbaarheid te verbeteren.
 
 
@@ -221,6 +213,19 @@ De testpersoon heeft geprobeerd de podcast te volgen.
 
 *  Captions toggle
 *  Settings popup
+
+
+## Ontwerp
+
+### Exclusive design
+
+Door gebruik te maken van exclusive design 
+focus op de gebruiker darice
+Samengevat is dit als volgt toegepast:
+*  **Study situation**: Tijdens de testsessies heb ik Darice de app normaal laten gebruiken en geobserveerd. Maar om de volledige situatie te begrijpen heb ik ook vragen gesteld over podcasts, apps en apparaten die Darice gebruikt. Hierdoor weet ik wat er vaak mist of gebruikt wordt dat wel handig is.
+*  **Ignore conventions**: Ik begon met prototypes gebaseerd op bestaande apps, die gericht zijn op verschillende gebruikers. Dit veranderde in een app die bijna alleen door Darice te gebruiken is. Wat op andere websites opties zijn, zijn standaard op deze website. En er zijn opties bijgekomen die alleen voor Darice handig zijn. Bovendien heb geen alternatieve layout en navigatie gemaakt, om te focussen op 1 vorm van gebruik. 
+*  **Prioritise identity**: Ik heb A/B tests gedaan en gevraagd om suggesties. De minimalistische layout en de vele opties maken deel uit van de unieke identiteit van Darice. Ik heb bijvoorbeeld geprobeerd om geen afleidende kleuren en animaties te gebruiken.
+*  **Add nonsense**: Tijdens de testsessies heb ik zo veel mogelijk features en verschillende oplossingen te presenteren. Zo zijn er oplossingen uit gekomen waar ik anders niet op was gekomen, zoals emoji en een print functie.
 
 
 ## Bronnen
