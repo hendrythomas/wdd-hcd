@@ -219,12 +219,14 @@ De testpersoon heeft geprobeerd de podcast te volgen.
 
 ### Exclusive design
 
-Door gebruik te maken van exclusive design 
-focus op de gebruiker darice
-Samengevat is dit als volgt toegepast:
+Door gebruik te maken van exclusive design kan ik beter begrijpen hoe Darice en slechthorenden websites gebruiken. Samengevat is dit als volgt toegepast:
+
 *  **Study situation**: Tijdens de testsessies heb ik Darice de app normaal laten gebruiken en geobserveerd. Maar om de volledige situatie te begrijpen heb ik ook vragen gesteld over podcasts, apps en apparaten die Darice gebruikt. Hierdoor weet ik wat er vaak mist of gebruikt wordt dat wel handig is.
+
 *  **Ignore conventions**: Ik begon met prototypes gebaseerd op bestaande apps, die gericht zijn op verschillende gebruikers. Dit veranderde in een app die bijna alleen door Darice te gebruiken is. Wat op andere websites opties zijn, zijn standaard op deze website. En er zijn opties bijgekomen die alleen voor Darice handig zijn. Bovendien heb geen alternatieve layout en navigatie gemaakt, om te focussen op 1 vorm van gebruik. 
+
 *  **Prioritise identity**: Ik heb A/B tests gedaan en gevraagd om suggesties. De minimalistische layout en de vele opties maken deel uit van de unieke identiteit van Darice. Ik heb bijvoorbeeld geprobeerd om geen afleidende kleuren en animaties te gebruiken.
+
 *  **Add nonsense**: Tijdens de testsessies heb ik zo veel mogelijk features en verschillende oplossingen te presenteren. Zo zijn er oplossingen uit gekomen waar ik anders niet op was gekomen, zoals emoji en een print functie.
 
 
